@@ -22,11 +22,11 @@ namespace q2_tourney_standings
             }
 
             int index = 0;
-            foreach (var rank in ranking.OrderByDescending(a => a.Score()))
+            foreach (var rank in ranking.OrderByDescending(a => a.Score))
             {
                 index++;
                 var test = rank.Matches.Where(a => a.RoundName.Contains("Winners Round")).Select(b => b.RoundName.Last());
-                Console.WriteLine(string.Format("{0}\t{1}\t{2}", index, rank.Player.Nick, rank.Score()));
+                Console.WriteLine(string.Format("{0}\t{1}\t{2}", index, rank.Player.Nick, rank.Score));
             }
         }
     }

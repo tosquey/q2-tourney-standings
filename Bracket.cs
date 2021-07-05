@@ -118,9 +118,9 @@ namespace q2_tourney_standings
 
         public int MaxRound { get; set; }
 
-        public double Score()
+        public double Score
         {
-            //get
+            get
             {
                 double score = 0;
 
