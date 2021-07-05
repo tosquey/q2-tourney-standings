@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "AQPFn9qll5X0KV8q3AuKPcpVbmMsVpxEnpwIxK969qJWnkSBF0jN0STScKoalC50OqANXVVpuQre7m8Seo2TFA==",
+  "success": true,
+  "projectFilePath": "/Users/lmatto1/source/q2-tourney-standings/q2-tourney-standings.csproj",
+  "expectedPackageFiles": [
+    "/Users/lmatto1/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

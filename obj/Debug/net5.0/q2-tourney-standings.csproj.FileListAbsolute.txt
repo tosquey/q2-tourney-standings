@@ -1,0 +1,17 @@
+/Users/lmatto1/source/q2-tourney-standings/bin/Debug/net5.0/q2-tourney-standings.deps.json
+/Users/lmatto1/source/q2-tourney-standings/bin/Debug/net5.0/q2-tourney-standings.runtimeconfig.json
+/Users/lmatto1/source/q2-tourney-standings/bin/Debug/net5.0/q2-tourney-standings.runtimeconfig.dev.json
+/Users/lmatto1/source/q2-tourney-standings/bin/Debug/net5.0/q2-tourney-standings.dll
+/Users/lmatto1/source/q2-tourney-standings/bin/Debug/net5.0/ref/q2-tourney-standings.dll
+/Users/lmatto1/source/q2-tourney-standings/bin/Debug/net5.0/q2-tourney-standings.pdb
+/Users/lmatto1/source/q2-tourney-standings/bin/Debug/net5.0/Newtonsoft.Json.dll
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.csproj.AssemblyReference.cache
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.AssemblyInfoInputs.cache
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.AssemblyInfo.cs
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.csproj.CoreCompileInputs.cache
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.csproj.CopyComplete
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.dll
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/ref/q2-tourney-standings.dll
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.pdb
+/Users/lmatto1/source/q2-tourney-standings/obj/Debug/net5.0/q2-tourney-standings.genruntimeconfig.cache
