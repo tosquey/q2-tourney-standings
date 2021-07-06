@@ -70,46 +70,6 @@ namespace q2_tourney_standings
         }
     }
 
-    public class Match
-    {
-        public Match()
-        {
-            Players = new List<Player>();
-        }
-        public string Identifier { get; set; }
-        public string RoundName { get; set; }
-        public List<Player> Players { get; set; }
-        public int? WinnerId { get; set; }
-        public int? LoserId { get; set; }
-
-        public Player Winner
-        {
-            get { return Players.Where(a => a.Id == WinnerId).FirstOrDefault(); }
-        }
-    }
-
-    public class Player : IEquatable<Player>
-    {
-        public bool Equals(Player other)
-        {
-            if (Object.ReferenceEquals(other, null)) return false;
-
-            return this.Id.Equals(other.Id);
-        }
-
-        public override int GetHashCode()
-        {
-            int hashId = Id.GetHashCode();
-            int hashNick = Nick.GetHashCode();
-
-            return hashId ^ hashNick;
-        }
-
-        public int Id { get; set; }
-        public string Nick { get; set; }
-        public int Seed { get; set; }
-    }
-
     public class Rank
     {
         public Player Player { get; set; }
