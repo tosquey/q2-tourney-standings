@@ -10,6 +10,10 @@ namespace q2_tourney_standings
 {
     public class Tourney
     {
+        public Tourney (string bracketFile)
+        {
+            this.Matches = Bracket.GetMatches(bracketFile);
+        }
         public Tourney(List<Match> matches)
         {
             this.Matches = matches;
@@ -25,12 +29,16 @@ namespace q2_tourney_standings
             get { return Matches.Where(a => a.RoundName.Contains("Losers Round")).Select(b => Int32.Parse(b.RoundName.Last().ToString())).Max(); }
         }
 
+        public List<Player> Attendees
+        {
+            get { return this.Matches.SelectMany(a => a.Players).Distinct().ToList(); }
+        }
+
         public List<PlayerRank> GetRank()
         {
             var playerRanks = new List<PlayerRank>();
-            var players = this.Matches.SelectMany(a => a.Players).Distinct();
-
-            foreach (var player in players)
+            
+            foreach (var player in this.Attendees)
             {
                 var rank = new PlayerRank();
                 rank.Player = player;
@@ -88,6 +96,7 @@ namespace q2_tourney_standings
         {
             return new List<string>() { "q2dm1","ztn2dm2","ztn2dm3" };
         }
+
         static string GetRandomMap()
         {
             return GetMaps().OrderBy(a => Guid.NewGuid()).First();

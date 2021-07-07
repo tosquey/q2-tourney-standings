@@ -11,7 +11,7 @@ namespace q2_tourney_standings
     {
         static void Main(string[] args)
         {
-            Tourney tourney = new Tourney(Bracket.GetMatches(@"/Users/lmatto1/temp/bracket.json"));
+            Tourney tourney = new Tourney(@"/Users/lmatto1/temp/bracket.json");
 
             //getting maps pre-event
             foreach (var match in tourney.RandomizeMaps())

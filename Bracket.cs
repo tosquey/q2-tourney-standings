@@ -69,38 +69,4 @@ namespace q2_tourney_standings
             return matches;
         }
     }
-
-    public class Rank
-    {
-        public Player Player { get; set; }
-
-        public List<Match> Matches { get; set; }
-
-        public int MaxRound { get; set; }
-
-        public double Score
-        {
-            get
-            {
-                double score = 0;
-
-                var winnerRounds = this.Matches.Where(a => a.RoundName.Contains("Winners Round")).Select(b => b.RoundName.Last().ToString()).ToList();
-                var loserRounds = this.Matches.Where(a => a.RoundName.Contains("Losers Round")).Select(b => b.RoundName.Last().ToString()).ToList();
-
-                score += this.Matches.Where(a => a.RoundName.Contains("Grand Final") && a.WinnerId == this.Player.Id).Count() * 100000;
-                score += this.Matches.Where(a => a.RoundName == "Grand Final").Count() * 50000;
-                score += this.Matches.Where(a => a.RoundName == "Losers Final").Count() * 10000;
-                score += this.Matches.Where(a => a.RoundName == "Losers Semi-Final").Count() * 5000;
-                score += this.Matches.Where(a => a.RoundName == "Losers Quarter-Final").Count() * 1000;
-                score += loserRounds.Count > 0 ? MaxRound == loserRounds.Select(a => Int32.Parse(a)).Max() ? 10 : 0 : 0;
-                score += this.Matches.Where(a => a.RoundName.StartsWith("Winners") && !a.RoundName.Contains("Round")).Count() * 10;
-                score += winnerRounds.Count > 0 ? winnerRounds.Select(a => Int32.Parse(a)).Max() : 0;
-                score += loserRounds.Count > 0 ? loserRounds.Select(a => Int32.Parse(a)).Max() : 0;
-                score += (double)((double)1 / (double)Player.Seed);
-
-                return score;
-            }
-        }
-
-    }
 }
