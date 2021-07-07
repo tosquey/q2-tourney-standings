@@ -10,18 +10,32 @@ namespace q2_tourney_standings
 {
     public class Tourney
     {
-        public static List<PlayerRank> GetRank(List<Match> matches)
+        public Tourney(List<Match> matches)
+        {
+            this.Matches = matches;
+        }
+        public List<Match> Matches { get; set; }
+        
+        int maxWinnersRound
+        {
+            get { return Matches.Where(a => a.RoundName.Contains("Winners Round")).Select(b => Int32.Parse(b.RoundName.Last().ToString())).Max(); }
+        } 
+        int maxLosersRound
+        {
+            get { return Matches.Where(a => a.RoundName.Contains("Losers Round")).Select(b => Int32.Parse(b.RoundName.Last().ToString())).Max(); }
+        }
+
+        public List<PlayerRank> GetRank()
         {
             var playerRanks = new List<PlayerRank>();
-            var players = matches.SelectMany(a => a.Players).Distinct();
+            var players = this.Matches.SelectMany(a => a.Players).Distinct();
 
             foreach (var player in players)
             {
                 var rank = new PlayerRank();
                 rank.Player = player;
-                rank.Matches = matches.Where(b => b.Players.Contains(player)).ToList();
+                rank.Matches = this.Matches.Where(b => b.Players.Contains(player)).ToList();
                 rank.Score = GetScore(rank);
-                rank.Score += (double)((double)1 / (double)player.Seed);
 
                 playerRanks.Add(rank);
             }
@@ -36,11 +50,8 @@ namespace q2_tourney_standings
             return playerRanks;
         }
 
-        static double GetScore(PlayerRank rank)
+        double GetScore(PlayerRank rank)
         {
-            var maxWinnersRound = rank.Matches.Where(a => a.RoundName.Contains("Winners Round")).Select(b => Int32.Parse(b.RoundName.Last().ToString())).Max();
-            var maxLosersRound = rank.Matches.Where(a => a.RoundName.Contains("Losers Round")).Select(b => Int32.Parse(b.RoundName.Last().ToString())).Max();
-
             var winnerRounds = rank.Matches.Where(a => a.RoundName.Contains("Winners Round")).Select(b => b.RoundName.Last().ToString()).ToList();
             var loserRounds = rank.Matches.Where(a => a.RoundName.Contains("Losers Round")).Select(b => b.RoundName.Last().ToString()).ToList();
 
@@ -62,7 +73,7 @@ namespace q2_tourney_standings
             score += winnerRounds.Count > 0 ? winnerRounds.Select(a => Int32.Parse(a)).Max() : 0;
             score += loserRounds.Count > 0 ? loserRounds.Select(a => Int32.Parse(a)).Max() : 0;
             //tiebreaker = seed
-            //score += (double)((double)1 / (double)Player.Seed);
+            score += (double)((double)1 / (double)rank.Player.Seed);
 
             return score;
         }
