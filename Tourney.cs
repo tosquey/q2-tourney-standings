@@ -77,5 +77,20 @@ namespace q2_tourney_standings
 
             return score;
         }
+        public List<string> RandomizeMaps()
+        {
+            return Matches.OrderBy(a => a.Identifier).Select(a => string.Format("Jogo {0}: {1} - {2}",
+                a.Identifier, string.Format("{0} vs {1}", a.Players[0].Nick, a.Players[1].Nick),
+                GetRandomMap())).ToList();
+        }
+
+        static List<string> GetMaps()
+        {
+            return new List<string>() { "q2dm1","ztn2dm2","ztn2dm3" };
+        }
+        static string GetRandomMap()
+        {
+            return GetMaps().OrderBy(a => Guid.NewGuid()).First();
+        }
     }
 }
